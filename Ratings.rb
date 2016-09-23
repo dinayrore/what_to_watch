@@ -6,7 +6,8 @@ CSV.foreach('movie_data/ratings.txt') do |row|
 end
 
 class Ratings
-  # attr_
+  attr_reader :movie_id, :user_id, :rating
+
   def initialize(movie_id, user_id, rating)
     @movie_id = movie_id
     @user_id = user_id
