@@ -6,10 +6,13 @@ CSV.foreach('movie_data/demographics.txt') do |row|
 end
 
 class Movie
-  movie id
-  title
-  genre
-  rating
+  # attr_
+
+  def initialize(movie_id, title, genre)
+    @movie_id = movie_id
+    @title = title
+    @genre = genre
+  end
 
   def average_ratings
   end

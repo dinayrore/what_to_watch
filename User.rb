@@ -9,8 +9,9 @@ class User
     @gender = gender
   end
 
-  def average_ratings
-
+  def sort_by_age
+    ObjectSpace.each_object(User).sort
+    @age.sort
   end
 
   def is_similar?
