@@ -1,10 +1,5 @@
 # Rating class
 
-require 'CSV'
-CSV.foreach('movie_data/ratings.txt') do |row|
-  puts row
-end
-
 class Ratings
   attr_reader :movie_id, :user_id, :rating
 

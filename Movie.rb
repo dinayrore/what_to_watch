@@ -1,10 +1,5 @@
 # Movie class
 
-require 'CSV'
-CSV.foreach('movie_data/demographics.txt') do |row|
-  puts row
-end
-
 class Movie
   attr_reader :movie_id, :title, :genre
 
