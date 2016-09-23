@@ -55,7 +55,7 @@ end
 
 def start_up
   puts 'Are you bored? Unsure of what to do with your life?'
-  puts 'Why not waste time watching one of the thousands of films our highly qualified users recommend?'
+  puts 'Why not waste time watching one of the thousands of films our highly qualified users recommends!'
   search_by_rating
 end
 
@@ -66,6 +66,25 @@ def search_by_rating
     puts 'Invalid input. Try again.'
     search_by_rating
   end
+end
+
+def search_by_options
+  print # movies hash with keys as ratings sorted into top ten and values as movie title.
+  puts 'Not satisfied with your choices?'
+  puts 'Well you can also search by genre! Would you like to search by genre?'
+  print 'Please type \'Y\' to search by genre.'
+  user_input = gets.chomp.upcase
+  exit if input != 'Y'
+end
+
+def search_by_genre(movie_genres)
+  print "Please enter a genre and we will let you know if we've got it!"
+  type = gets.chomp
+  unless movie_genres.include?(type)
+    puts 'Invalid input. Try again.'
+    search_by_genre
+  end
+  processing_data
 end
 
 def processing_movie_results
@@ -79,34 +98,17 @@ def processing_movie_results
   # end
 end
 
-def search_by_rating
-  print # movies hash with keys as ratings sorted into top ten and values as movie title.
-  puts 'Not satisfied with your choices?'
-  puts 'Well you can also search by genre! Would you like to search by genre instead?'
-  print 'Please type \'Y\' to search by genre.'
-  user_input = gets.chomp.upcase
-  exit if input != 'Y'
-end
-
 # something to get it to search_by_genre if none of those options are good enough...
-
-def search_by_genre(movie_genres)
-  print "Please enter a genre and we will let you know if we've got it!"
-  type = gets.chomp
-  unless movie_genres.include?(type)
-    puts 'Invalid input. Try again.'
-    search_by_genre
-  end
-  processing_data
-end
 
 def main
   movie_genres = ['unknown', 'Action', 'Adventure', 'Animation', "Children's", 'Comedy', 'Crime', 'Documentary', 'Drama', 'Fantasy', 'Film-Noir', 'Horror', 'Musical', 'Mystery', 'Romance' 'Sci-Fi', 'Thriller', 'War', 'Western']
-  obtain_user_demographics
-  obtain_movie_rating
-  obtain_movies(movie_genres)
+  # obtain_user_demographics
+  # obtain_movie_rating
+  # obtain_movies(movie_genres)
   start_up
+  search_by_rating
   processing_movie_results
+  search_by_options
 end
 
 main if __FILE__ == $PROGRAM_NAME
