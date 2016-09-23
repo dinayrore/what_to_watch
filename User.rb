@@ -1,9 +1,9 @@
 # User class
 
 class User
-  # attr_
+  attr_reader :user_id, :age, :gender
 
-  def initalize(user_id, age, gender)
+  def initialize(user_id, age, gender)
     @user_id = user_id
     @age = age
     @gender = gender
