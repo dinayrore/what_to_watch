@@ -6,7 +6,7 @@ CSV.foreach('movie_data/demographics.txt') do |row|
 end
 
 class Movie
-  # attr_
+  attr_reader :movie_id, :title, :genre
 
   def initialize(movie_id, title, genre)
     @movie_id = movie_id
@@ -15,6 +15,7 @@ class Movie
   end
 
   def average_ratings
+    # find all movies with same movie id and average ratings
   end
 
   def is_similar?
