@@ -49,3 +49,5 @@ Please complete the following procedure to run the program on a live system:
 ## Acknowledgments
 
 * The Iron Yard - Durham
+* Alyssa Pratt - for listening to and helping me implement my crazy ideas!
+* Nate Semmler - for his guidance in rspec
