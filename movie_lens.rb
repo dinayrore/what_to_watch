@@ -5,7 +5,7 @@ class MovieLens
 
   def read_movie_data_file
     @movie_data = []
-    CSV.foreach('movie_data/u.item') do |row|
+    CSV.foreach('item') do |row|
       subarray = row[0].gsub(/\|/, ',').split(',')
       @movie_data << subarray
     end
@@ -13,7 +13,7 @@ class MovieLens
 
   def read_ratings_data_file
     @ratings_data = []
-    CSV.foreach('movie_data/u.data') do |row|
+    CSV.foreach('data') do |row|
       subarray = row[0].gsub(/\s+/, ',').split(',')
       @ratings_data << subarray
     end
@@ -21,7 +21,7 @@ class MovieLens
 
   def read_user_data_file
     @user_data = []
-    CSV.foreach('movie_data/u.user') do |row|
+    CSV.foreach('user') do |row|
       subarray = row[0].gsub(/\|/, ',').split(',')
       @movie_data << subarray
     end
