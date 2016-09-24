@@ -1,13 +1,9 @@
-# User class
+# User class - see rspec for further details.
+require '../movie_lens'
 
-class User
-  attr_reader :user_id, :age, :gender
+class User < MovieLens
 
-  def initialize(user_id, age, gender)
-    @user_id = user_id
-    @age = age
-    @gender = gender
-  end
+
 
   def sort_by_age
     ObjectSpace.each_object(User).sort

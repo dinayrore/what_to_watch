@@ -1,19 +1,23 @@
-# Movie class
+# Movie class - see rspec for further details.
+require '../movie_lens'
 
-class Movie
-  attr_reader :movie_id, :title, :genre
+class Movie < MovieLens
 
-  def initialize(movie_id, title, genre)
-    @movie_id = movie_id
-    @title = title
-    @genre = genre
+  def find_title
+    movie_title = []
+    @movie_data.each do |subarray|
+      if @movie_id == subarray[0]
+        movie_title << subarray[1]
+      end
+    end
   end
 
-  def average_ratings
-    # find all movies with same movie id and average ratings
+  def find_movie_id
+    movie_id = []
+    @movie_data.each do |subarray|
+      if @movie_title == subarray[1]
+        movie_id << subarray[0]
+      end
+    end
   end
-
-  def is_similar?
-  end
-
 end
