@@ -1,6 +1,6 @@
-# Project Title
+# Movie Advisor
 
-The program entitled '.rb' is a basic program intended to help users to ... The program does the following functions...The program will automatically output...
+The program entitled 'what_to_watch.rb' is the main file used to run the Movie Advisor.  This program was intended to serve as a Netflix Clone, prompting the user for input and providing the appropriate output for each scenario.  Currently, the program is able to withdraw information stored in text files from a movie rating study and deliver the ratings for a movie ID and the movie ID title.  The program contains bugs for the remaining options of searching for the average star rating and ratings made by a particular user.  The program still needs to include the following features: displaying the most popular movie choices and displaying options based on user preference utilizing the Euclidean distance.
 
 ## Getting Started
 
@@ -35,7 +35,7 @@ Once you have completed the above installation processes your system should be r
 Please complete the following procedure to run the program on a live system:
   1. Open Terminal.
   2. Change your directory to the one that which you have saved this zip file.`cd folder_name`
-  3. Type `.rb` to run the program.
+  3. Type `what_to_watch.rb` to run the program.
   4. READ all instructions BEFORE adding input.
 
 ## Built With
