@@ -2,36 +2,38 @@
 require 'CSV'
 
 class Rating
-  def read_ratings_data_file
-    puts 'One moment please...'
-    @ratings_data = []
-    CSV.foreach('data.txt') do |row|
-      subarray = row[0].gsub(/\s+/, ',').split(',')
-      @ratings_data << subarray
-    end
-  end
 
-  def retrieve_ratings
-    all_ratings = Rating.new
-    all_ratings.read_ratings_data_file
-    @movie_ratings = []
-    @ratings_data.each do |subarray|
-      if @movie_id == subarray[1]
-        @movie_ratings << subarray[2]
-      end
-      if @user_id == subarray[0]
-        @movie_ratings << subarray[2]
+  def retrieve_ratings_movie_id(ratings_data, movie_id)
+    movie_ratings = []
+    ratings_data.each do |subarray|
+      if movie_id == subarray[1]
+        movie_ratings << subarray[2].to_i
       end
     end
-    print @movie_ratings
+    puts "The following are all of the ratings found for movie ID number #{movie_id}: #{movie_ratings}"
   end
 
-  def average_ratings
-    rating = Rating.new
-    rating.read_ratings_data_file
-    sum = 0
-    @movie_ratings.each { |rating| sum += rating }
-    @average_rating = sum.to_f / @movie_ratings.count.to_f.round(1)
-    print "The average rating of your movie is #{@average_rating} stars!"
+  def average_rating(ratings_data, movie_id)
+    movie_ratings = []
+    ratings_data.each do |subarray|
+      if movie_id == subarray[1]
+        movie_ratings << subarray[2].to_i
+          sum = 0
+          movie_ratings.each do |rating|
+            sum += rating
+            average_rating = sum / movie_ratings.count
+          end
+     end
+    end
+    print "The average rating of your movie is #{average_rating} stars!"
+  end
+
+  def retrieve_ratings_user_id(ratings_data, movie_id)
+    movie_ratings = []
+    ratings_data.each do |subarray|
+      if user_id == subarray[0]
+        movie_ratings << subarray[2]
+      end
+    end
   end
 end
