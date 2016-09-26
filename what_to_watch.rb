@@ -26,7 +26,7 @@ def search_by_options(first_option)
   if first_option == '1'
     search_by_movie_id(first_option)
   else
-    search_by_user_id
+    search_by_user_id(first_option)
   end
 end
 
@@ -77,9 +77,9 @@ end
 
 def read_data_files(first_option, second_option, movie_id)
   if second_option == '1'
-    read_ratings_data_file_for_all_ratings(first_option, movie_id)
+    obtain_all_ratings(first_option, movie_id)
   elsif second_option == '2'
-    read_ratings_data_file_for_average_ratings(first_option, movie_id)
+    obtain_average_ratings(first_option, movie_id)
   elsif second_option == '3'
     read_movie_data_file(first_option, movie_id)
   else
@@ -88,7 +88,7 @@ def read_data_files(first_option, second_option, movie_id)
   end
 end
 
-def read_ratings_data_file_for_all_ratings(first_option, movie_id)
+def obtain_all_ratings(first_option, movie_id)
   puts 'This may take a while...'
   ratings_data = []
   CSV.foreach('data.txt', "r:ISO-8859-1") do |row|
@@ -100,7 +100,7 @@ def read_ratings_data_file_for_all_ratings(first_option, movie_id)
   return_to_prompt_user_search(first_option)
 end
 
-def read_ratings_data_file_for_average_ratings(first_option, movie_id)
+def obtain_average_ratings(first_option, movie_id)
   puts 'One moment please...'
   ratings_data = []
   CSV.foreach('data.txt', "r:ISO-8859-1") do |row|
@@ -123,13 +123,7 @@ def read_movie_data_file(first_option, movie_id)
   return_to_prompt_user_search(first_option)
 end
 
-  #   else
-  #     user = Rating.new
-  #     user.retrieve_ratings_by_user_id(ratings_data, movie_id)
-  #   end
-  # end
-
-def search_by_user_id
+def search_by_user_id(first_option)
   puts 'Would you like to find all of the ratings made by a user? Type \'Y\'.'
   user_input = gets.chomp.upcase
     if user_input == 'Y'
@@ -141,7 +135,14 @@ end
 
 def complete_search_by_user_id
   print 'Please enter the user ID number you would like to search: '
-  @user_id == gets.chomp
+  user_id = gets.chomp
+  ratings_data = []
+  CSV.foreach('data.txt', "r:ISO-8859-1") do |row|
+    subarray = row[0].gsub(/\s+/, ',').split(',')
+    ratings_data << subarray
+  end
+  user = Rating.new
+  user.retrieve_ratings_by_user_id(ratings_data, user_id)
 end
 
 def main

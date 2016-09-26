@@ -33,16 +33,21 @@ class Rating
       sum += rating
       @average_rating = sum / @movie_ratings.count
     end
-     print "The average rating of your movie is #{@average_rating} stars!" "\n"
+     puts "The average rating of your movie is #{@average_rating} stars!"
   end
 
-  def retrieve_ratings_user_id(ratings_data, user_id)
-    user_ratings = []
+  def retrieve_ratings_by_user_id(ratings_data, user_id)
+    @user_ratings = []
     ratings_data.each do |subarray|
       if user_id == subarray[0]
-        user_ratings << subarray[2]
+        @user_ratings << subarray[2].to_i
       end
+      @user_ratings
     end
-    p user_ratings
+    sum = 0
+    @user_ratings.each do |rating|
+      sum += rating
+    end
+    puts "The user ID number #{user_id} has made #{sum} ratings."
   end
 end
