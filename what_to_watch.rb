@@ -10,11 +10,13 @@ def start_program
 end
 
 def prompt_user_search
-  puts 'Please choose from the following options'
+  puts 'Please choose from the following options:'
   puts '(1) Search by movie ID number.'
   puts '(2) Search by user ID'
-  first_option = gets.chomp
-  if !%w(1 2).include?(first_option)
+  first_option = gets.chomp.upcase
+  if first_option == 'N'
+    conduct_a_different_search_option
+  elsif !%w(1 2).include?(first_option)
     puts 'Invalid input. Try again.'
     prompt_user_search
   else
@@ -36,21 +38,77 @@ def return_to_prompt_user_search(first_option)
     if user_input == 'Y'
       prompt_user_search
     elsif user_input == 'N'
-      puts 'Would you like to go back to the previous menu options? Type \'Y\'.'
-      user_input = gets.chomp.upcase
-        if user_input == 'Y'
-          search_by_options(first_option)
-        else
-          exit
-        end
+      conduct_a_different_search_option(user_input)
     else
       puts 'Invalid input. Try again.'
       return_to_prompt_user_search(first_option)
     end
 end
 
+def conduct_a_different_search_option(*_)
+  puts 'Would you like to conduct a different search? Type \'Y\'.'
+  new_input = gets.chomp.upcase
+  if new_input == 'Y'
+    prompt_user_search_top_options(new_input)
+  else
+    exit
+  end
+end
+
+def prompt_user_search_top_options(user_input)
+  puts 'Please choose from the following options:'
+  puts '(1) Search top movies by average rating for a movie rating. '
+  puts '(2) Search top movies by average rating for user ID'
+  top_option_input = gets.chomp
+  if !%w(1 2).include?(top_option_input)
+    puts 'Invalid input. Try again.'
+    prompt_user_search_top_options(user_input)
+  else
+    search_by_top_options(user_input, top_option_input)
+  end
+end
+
+def search_by_top_options(user_input, top_option_input)
+  if top_option_input == '1'
+    obtain_top_movies_value(user_input)
+  else
+    # search_top_movies_by_user_id
+  end
+end
+
+def obtain_top_movies_value(user_input)
+  print 'How many movies would you like us to recommend? '
+  top_movies_number = gets.chomp.to_i
+    if top_movies_number == 0
+    puts 'Invalid input. Try again.'
+    obtain_top_movies_value(user_input)
+    else
+    search_for_top_movies(top_movies_number, user_input)
+    end
+end
+
+def search_for_top_movies(top_movies_number, user_input)
+  puts 'Processing...Processing...Processing...'
+  ratings_data = []
+  CSV.foreach('data.txt', "r:ISO-8859-1") do |row|
+    subarray = row[0].gsub(/\s+/, ',').split(',')
+    if !subarray.uniq
+    ratings_data << subarray
+    else
+      # sum of numbers / 2 possible average?
+    end
+  end
+  ratings_data.sort_by! { |rating| rating[2] }
+  most_popular_movies = ratings_data.reverse!
+  top_movies = most_popular_movies[0...top_movies_number]
+  top_movies.each do |value|
+  puts "#{value[1]}: #{value[2]}"
+  end
+  conduct_a_different_search_option(user_input)
+end
+
 def search_by_movie_id(first_option)
-  puts 'Please choose from the following options'
+  puts 'Please choose from the following options:'
   puts '(1) Find all ratings'
   puts '(2) Find average ratings'
   puts '(3) Find movie title'
