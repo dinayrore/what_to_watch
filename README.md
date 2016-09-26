@@ -1,6 +1,6 @@
 # Movie Advisor
 
-The program entitled 'what_to_watch.rb' is the main file used to run the Movie Advisor.  This program was intended to serve as a Netflix Clone, prompting the user for input and providing the appropriate output for each scenario.  Currently, the program is able to withdraw information stored in text files from a movie rating study and deliver the ratings for a movie ID and the movie ID title.  The program contains bugs for the remaining options of searching for the average star rating and ratings made by a particular user.  The program still needs to include the following features: displaying the most popular movie choices and displaying options based on user preference utilizing the Euclidean distance.
+The program entitled 'what_to_watch.rb' is the main file used to run the Movie Advisor.  This program was intended to serve as a Netflix Clone, prompting the user for input and providing the appropriate output for each scenario.  Currently, the program is able to withdraw information stored in text files from a movie rating study and deliver the ratings for a movie ID and the movie ID title.  The program still needs to include the following features: displaying the most popular movie choices and displaying options based on user preference utilizing the Euclidean distance.
 
 ## Getting Started
 
