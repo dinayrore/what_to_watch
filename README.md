@@ -38,7 +38,7 @@ Once you have completed the above installation processes your system is ready to
 Please complete the following procedure to run the program on a live system:
   1. Open Terminal.
   2. Change your directory to the one that which you would like to save this project. `$ cd folder_name`
-  3. Then run the command `$ git clone https://github.com/kteich88/what_to_watch.git` and `$ cd what_to_watch`
+  3. Then run the commands `$ git clone https://github.com/kteich88/what_to_watch.git` and `$ cd what_to_watch`
   4. Type `what_to_watch.rb` to run the program.
   5. READ all instructions BEFORE adding input.
 
