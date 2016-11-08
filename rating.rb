@@ -1,7 +1,4 @@
 # Ratings class - see rspec for further details.
-require 'pry'
-
-
 class Rating
   def initialize(*_)
     @movie_id = *_
