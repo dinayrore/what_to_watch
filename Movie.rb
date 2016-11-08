@@ -1,6 +1,4 @@
 # Movie class - see rspec for further details.
-require 'pry'
-
 class Movie
   def initialize(*_)
     @movie_id = *_
