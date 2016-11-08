@@ -31,16 +31,6 @@ Install ruby 2.3.1 - or latest version of Ruby
   1. Close and reopen Terminal. `rbenv install 2.3.1`
   2. After quite some time, run: `rbenv global 2.3.1`
   
-Download postgresql
-  1. Go to http://postgresapp.com/
-  2. Move the app to the /Applications file folder.
-  3. Double Click on app to run the program.
-
-Install postgresql using brew
-```
-brew install postgresql
-```
-
 Once you have completed the above installation processes your system should be ready to launch the program!
 
 ## Deployment
