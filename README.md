@@ -31,7 +31,7 @@ Install ruby 2.3.1 - or latest version of Ruby
   1. Close and reopen Terminal. `rbenv install 2.3.1`
   2. After quite some time, run: `rbenv global 2.3.1`
   
-Once you have completed the above installation processes your system should be ready to launch the program!
+Once you have completed the above installation processes your system is ready to launch the program!
 
 ## Deployment
 
